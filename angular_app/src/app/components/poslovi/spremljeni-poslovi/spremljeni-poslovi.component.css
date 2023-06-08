@@ -1,0 +1,39 @@
+.tekstDiv {
+  position: absolute;
+  top: 25%;
+  left: 40%;
+}
+
+.tekstDiv p {
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.tekstDiv p:first-of-type {
+  margin-left: 33%;
+  margin-bottom: -1%;
+  color: rgb(174, 1, 160);
+  font-size: medium;
+}
+
+
+.card {
+  position: absolute;
+  top: 35%;
+  left: 25%;
+  width: 50%;
+
+  max-height: 50%;
+  overflow-y: scroll;
+}
+
+h5 {
+  margin-top: -2%;
+  margin-left: 3%;
+  font-size: 150%;
+}
+
+.card-text {
+  font-size: 110%;
+  margin-left: 3%;
+}
