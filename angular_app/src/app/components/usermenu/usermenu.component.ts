@@ -1,5 +1,6 @@
 import {Component, ElementRef, HostListener, Input} from '@angular/core';
 import {Router} from "@angular/router";
+import {AuthService} from "../../services/auth.service";
 
 
 @Component({
@@ -13,9 +14,10 @@ export class UsermenuComponent {
   tipKorisnika:any;
   private nativeElement: Node;
 
-  constructor(private elementRef: ElementRef,private router:Router) {
+  constructor(private elementRef: ElementRef,private router:Router,private  auth:AuthService) {
     this.nativeElement = elementRef.nativeElement;
     this.menuOpen = false;
+    this.tipKorisnika=this.auth.getRoleFromToken()
   }
 
   ngOnInit() {

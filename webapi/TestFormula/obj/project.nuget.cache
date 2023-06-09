@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "F850qkK1tlMJHR7dX6D777IMxi+YzrZRiCdpEh18vHESJUUs4eA/GQubvRWA6lE6hq3W2cszC4HVeu7OmSSBeQ==",
+  "dgSpecHash": "3Li0toqzi6cotcmCs7Gyr6upZ8xfuFB6o9qxEq8MbVf0UtisSvakWYnYxvKAgKX2B1GVrYDeGdeogg5CX3p3fQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mahir\\Desktop\\adiChat\\webapp\\webapi\\TestFormula\\webAPI.csproj",
+  "projectFilePath": "C:\\Users\\Mahir\\Desktop\\githubMiniJobs\\miniJobs\\webapi\\TestFormula\\webAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mahir\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Mahir\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

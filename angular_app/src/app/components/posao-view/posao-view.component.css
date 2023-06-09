@@ -137,3 +137,17 @@
 .deadline .content-icon:before {
   content: "⌛";
 }
+.employeeCount {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.employeeCount .content-icon {
+  margin-right: 5px;
+}
+
+.employeeCount .content-icon i {
+  font-size: 16px;
+}

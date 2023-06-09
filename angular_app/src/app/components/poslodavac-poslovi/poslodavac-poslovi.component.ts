@@ -32,7 +32,7 @@ export class PoslodavacPosloviComponent {
 
   // liste podataka iz baze
 
-  poslovi!:GetPosaoByUsernameVM[];
+  poslovi:GetPosaoByUsernameVM[]=[];
   lokacije!:cmbStavke[]
   posaoTipovi!:PosaoTip[];
   nacinPlacanja!: cmbStavke[]
@@ -416,5 +416,7 @@ initFormu(){
 
   }
 
-
+  dodajPosao(){
+    this.router.navigate(['osnovne-informacije'])
+  }
 }

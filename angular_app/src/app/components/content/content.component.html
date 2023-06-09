@@ -143,7 +143,7 @@
                                     <p id="brZPoslova">{{aplikant.brojZavrsenihPoslova}}</p>
                                 </div>
                             </div>
-                            <div class="lokacijaDiv">
+                            <div class="lokacijaDiv" *ngIf="aplikant.opstina">
                                 <div class="lokacija">
                                     <p class="fa fa-map-marker"></p>
                                     <p id="lokacija"> {{aplikant.opstina}}</p>

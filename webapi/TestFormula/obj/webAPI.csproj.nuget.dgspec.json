@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mahir\\Desktop\\adiChat\\webapp\\webapi\\TestFormula\\webAPI.csproj": {}
+    "C:\\Users\\Mahir\\Desktop\\githubMiniJobs\\miniJobs\\webapi\\TestFormula\\webAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mahir\\Desktop\\adiChat\\webapp\\webapi\\TestFormula\\webAPI.csproj": {
+    "C:\\Users\\Mahir\\Desktop\\githubMiniJobs\\miniJobs\\webapi\\TestFormula\\webAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mahir\\Desktop\\adiChat\\webapp\\webapi\\TestFormula\\webAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Mahir\\Desktop\\githubMiniJobs\\miniJobs\\webapi\\TestFormula\\webAPI.csproj",
         "projectName": "webAPI",
-        "projectPath": "C:\\Users\\Mahir\\Desktop\\adiChat\\webapp\\webapi\\TestFormula\\webAPI.csproj",
+        "projectPath": "C:\\Users\\Mahir\\Desktop\\githubMiniJobs\\miniJobs\\webapi\\TestFormula\\webAPI.csproj",
         "packagesPath": "C:\\Users\\Mahir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mahir\\Desktop\\adiChat\\webapp\\webapi\\TestFormula\\obj\\",
+        "outputPath": "C:\\Users\\Mahir\\Desktop\\githubMiniJobs\\miniJobs\\webapi\\TestFormula\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mahir\\AppData\\Roaming\\NuGet\\NuGet.Config",

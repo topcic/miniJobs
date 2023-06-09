@@ -30,6 +30,9 @@
 
             <p class="addPay" *ngIf="posao.dodatnoPlacanje"><span class="content-icon"></span> Dodatno plaća:</p>
             <p class="highlight" *ngIf="posao.dodatnoPlacanje">{{posao.dodatnoPlacanjecopy}}</p>
+            <div class="employeeCount">
+              <span class="content-icon"><i class="fa fa-users"></i></span> Broj traženih zaposlenih: {{posao.brojRadnika}}
+            </div>
             <p class="deadline" *ngIf="posao.status !== 'Završen'"><span class="content-icon"></span> Rok za prijavu: {{posao.deadline}}</p>
             <div *ngIf="posao.status === 'Završen'" class="jobFinished">
               <span class="content-icon jobType-icon"></span> Posao je završen

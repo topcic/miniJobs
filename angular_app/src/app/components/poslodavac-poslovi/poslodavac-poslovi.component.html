@@ -1,5 +1,9 @@
 <app-navbar [tipKorisnika]="tipKorisnika"></app-navbar>
-<div class="poslovi">
+<div class="noJobs" *ngIf="poslovi.length === 0">
+  <p>Niste dodali nijedan posao.</p>
+  <button type="button" class="btn btn-primary" (click)="dodajPosao()">Dodajte svoj prvi posao</button>
+</div>
+<div class="poslovi" *ngIf="poslovi.length>0">
   <table class="center-table">
     <thead>
     <tr>
@@ -324,4 +328,4 @@
     </div>
   </div>
 </div>
-<app-footer></app-footer>
+<app-footer [top]="170" ></app-footer>
