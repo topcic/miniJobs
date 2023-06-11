@@ -6,6 +6,7 @@ using WebAPI.Models;
 using webAPI.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using WebAPI.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebAPI.Controllers
 {
@@ -44,58 +45,56 @@ namespace WebAPI.Controllers
             if (korisnik == null)
                 return BadRequest();
           
-            var result = from p in _db.Posao
+            var poslovi = from p in _db.Posao
                          join o in _db.Opstina on p.opstina_id equals o.id
                          join pt in _db.PosaoTip on p.posaoTip_id equals pt.id
                          join poslodavac in _db.Poslodavac on p.poslodavac_id equals poslodavac.id
                          join k in _db.KorisnickiNalog on p.poslodavac_id equals k.id
-                          join ap in _db.ApliciraniPosao on p.id equals ap.posao_id into joinResult
-                          from ap in joinResult.DefaultIfEmpty()
+                         join ap in _db.ApliciraniPosao on p.id equals ap.posao_id into joinResult
+                         from ap in joinResult.DefaultIfEmpty()
                          join pp in _db.PosaoPitanje on p.id equals pp.posao_id
-                          where (ap.status == "Aktivan" || ap.status==null || ap.status=="") && k.id == korisnik.id && p.status!="Obrisan" 
-                   
+                         where (ap.status == "Aktivan" || ap.status==null) && k.id == korisnik.id && p.status!="Obrisan"
                          group new { p, o.description, pt.naziv, k.korisnickoIme } by new
                          { id = p.id, p.naziv,p.deadline, p.opis, p.status, p.brojAplikanata, o.description, tipPosla = pt.naziv, k.korisnickoIme,p.adresa,p.Cijena,p.opstina_id,p.posaoTip_id } into g
                          select new PosaoGetByUsernameVM
                          {
                              id = g.Key.id,
-                             poslodavac=g.Key.korisnickoIme,
-                             naziv = g.Key.naziv,
-                             opis = g.Key.opis,
-                             status = g.Key.status,
-                             brojRadnika = g.Key.brojAplikanata,
-                             opstina = g.Key.description,
-                             opstina_id=g.Key.opstina_id,
-                             posaoTip_id=g.Key.posaoTip_id,
-                             posaoTip = g.Key.tipPosla,                           
-                             rasporedOdgovori = (from pitanje in _db.Pitanje
-                                         join pp in _db.PosaoPitanje on pitanje.id equals pp.pitanje_id
-                                         join po in _db.PitanjeOdgovor on pp.id equals po.posaoPitanje_id
-                                         join podg in _db.PonudjeniOdgovor on po.ponudjeniOdgovor_id equals podg.id
-                                         where pp.posao_id == g.Key.id && pitanje.id == 1
-                                         select podg.id).ToList(),
-                             nacinPlacanja= (from pitanje in _db.Pitanje
-                                             join pp in _db.PosaoPitanje on pitanje.id equals pp.pitanje_id
-                                             join po in _db.PitanjeOdgovor on pp.id equals po.posaoPitanje_id
-                                             join podg in _db.PonudjeniOdgovor on po.ponudjeniOdgovor_id equals podg.id
-                                             where pp.posao_id == g.Key.id && pitanje.id == 2
-                                             select podg.id).First(),
-                             dodatnoPlacanjeOdgovori = (from pitanje in _db.Pitanje
-                                                        join pp in _db.PosaoPitanje on pitanje.id equals pp.pitanje_id
-                                                        join po in _db.PitanjeOdgovor on pp.id equals po.posaoPitanje_id
-                                                        join podg in _db.PonudjeniOdgovor on po.ponudjeniOdgovor_id equals podg.id
-                                                        where pp.posao_id == g.Key.id && pitanje.id == 3
-                                                        select podg.id).ToList(),
-                             adresa=g.Key.adresa,
-                             cijena=g.Key.Cijena,
-                             brojApliciranja = _db.ApliciraniPosao.Where(ap=>ap.posao_id==g.Key.id).Count(),
-                             deadline= g.Key.deadline.ToString("dd.MM.yyyy")
-                         };
+                        naziv = g.Key.naziv,
+                        opis = g.Key.opis,
+                        status = g.Key.status,
+                        brojRadnika = g.Key.brojAplikanata,
+                        opstina = g.Key.description,
+                        opstina_id=g.Key.opstina_id,
+                        posaoTip_id=g.Key.posaoTip_id,
+                        posaoTip = g.Key.tipPosla,                           
+                        rasporedOdgovori = (from pitanje in _db.Pitanje
+                                    join pp in _db.PosaoPitanje on pitanje.id equals pp.pitanje_id
+                                    join po in _db.PitanjeOdgovor on pp.id equals po.posaoPitanje_id
+                                    join podg in _db.PonudjeniOdgovor on po.ponudjeniOdgovor_id equals podg.id
+                                    where pp.posao_id == g.Key.id && pitanje.id == 1
+                                    select podg.id).ToList(),
+                        nacinPlacanja= (from pitanje in _db.Pitanje
+                                        join pp in _db.PosaoPitanje on pitanje.id equals pp.pitanje_id
+                                        join po in _db.PitanjeOdgovor on pp.id equals po.posaoPitanje_id
+                                        join podg in _db.PonudjeniOdgovor on po.ponudjeniOdgovor_id equals podg.id
+                                        where pp.posao_id == g.Key.id && pitanje.id == 2
+                                        select podg.id).First(),
+                        dodatnoPlacanjeOdgovori = (from pitanje in _db.Pitanje
+                                                   join pp in _db.PosaoPitanje on pitanje.id equals pp.pitanje_id
+                                                   join po in _db.PitanjeOdgovor on pp.id equals po.posaoPitanje_id
+                                                   join podg in _db.PonudjeniOdgovor on po.ponudjeniOdgovor_id equals podg.id
+                                                   where pp.posao_id == g.Key.id && pitanje.id == 3
+                                                   select podg.id).ToList(),
+                        adresa=g.Key.adresa,
+                        cijena=g.Key.Cijena,
+                        brojApliciranja = _db.ApliciraniPosao.Where(ap=>ap.posao_id==g.Key.id).Count(),
+                        deadline=g.Key.deadline
+                    };
 
 
 
-            // var poslovi= _db.Posao.Where(p=>p.poslodavac.korisnickoIme==username).ToList();
-            return Ok(result);
+           //  var poslovi= _db.Posao.Where(p=>p.poslodavac.korisnickoIme==username).ToList();
+            return Ok(poslovi);
         }
 
         [HttpGet]
@@ -149,7 +148,7 @@ namespace WebAPI.Controllers
                              adresa = g.Key.adresa,
                              cijena = g.Key.Cijena,
                              brojApliciranja = _db.ApliciraniPosao.Where(ap => ap.posao_id == g.Key.id).Count(),
-                             deadline = g.Key.deadline.ToString("dd.MM.yyyy")
+                             deadline = g.Key.deadline
                          };
 
 
@@ -194,12 +193,7 @@ namespace WebAPI.Controllers
         public ActionResult Update(PosaoAddVM posao)
         {
             var org = _db.Posao.FirstOrDefault(p => p.id == posao.posao_id);
-            if (posao.posaoTip_id == -1)
-            {
-                _db.PosaoTip.Add(new PosaoTip() { naziv = posao.posaoTip });
-                _db.SaveChanges();
-                posao.posaoTip_id = _db.PosaoTip.FirstOrDefault(p => p.naziv == posao.posaoTip).id;
-            }
+
             var opstinaa = posao.opstina_id;
 
             org.naziv = posao.naziv;
@@ -210,7 +204,7 @@ namespace WebAPI.Controllers
             org.Cijena = posao.cijena;
             org.brojAplikanata = posao.brojAplikanata;
             if (posao.deadline != 0)
-                org.deadline = org.deadline.AddDays(posao.deadline);
+                org.deadline = DateTime.Parse(org.deadline).AddDays(posao.deadline).ToString("dd.MM.yyyy. HH:mm:ss");
 
 
             
@@ -239,6 +233,20 @@ namespace WebAPI.Controllers
             _db.SaveChanges();
 
             return Ok((new { Message = "Uspjesno spremljene promjene" })  )  ;
+        }
+        [HttpGet]
+        public IActionResult Paging(string username, int pageNumber = 1, int pageSize = 6,string status="Aktivan")
+        {
+            var korisnik = _db.KorisnickiNalog.FirstOrDefault(k => k.korisnickoIme == username);
+            if (korisnik == null)
+                return BadRequest();
+            var poslovi = _db.Posao
+                .Where(p => p.poslodavac.korisnickoIme == username&&p.status==status)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            return Ok(poslovi);
         }
     }
 }

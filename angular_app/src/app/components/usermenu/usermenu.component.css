@@ -18,7 +18,7 @@ li {
   font-family: Arial;
 }
 
- .dropdown-item:hover {
+.dropdown-item:hover {
   border-radius: 10px;
   cursor: pointer;
   background-color: rgb(174, 1, 160);

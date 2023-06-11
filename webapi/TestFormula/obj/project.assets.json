@@ -3977,11 +3977,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mahir\\Desktop\\githubMiniJobs\\miniJobs\\webapi\\TestFormula\\webAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Mahir\\Desktop\\Nova fascikla\\webapp\\webapi\\TestFormula\\webAPI.csproj",
       "projectName": "webAPI",
-      "projectPath": "C:\\Users\\Mahir\\Desktop\\githubMiniJobs\\miniJobs\\webapi\\TestFormula\\webAPI.csproj",
+      "projectPath": "C:\\Users\\Mahir\\Desktop\\Nova fascikla\\webapp\\webapi\\TestFormula\\webAPI.csproj",
       "packagesPath": "C:\\Users\\Mahir\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mahir\\Desktop\\githubMiniJobs\\miniJobs\\webapi\\TestFormula\\obj\\",
+      "outputPath": "C:\\Users\\Mahir\\Desktop\\Nova fascikla\\webapp\\webapi\\TestFormula\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Mahir\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -31,7 +31,7 @@ namespace webAPI.Migrations
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     korisnickoIme = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    datumRegistracije = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    datumRegistracije = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     brojTelefona = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     status = table.Column<int>(type: "int", nullable: true),
                     spol = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -103,7 +103,8 @@ namespace webAPI.Migrations
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     korisnik_id = table.Column<int>(type: "int", nullable: false),
-                    verifikaciskiKod = table.Column<int>(type: "int", nullable: false)
+                    verifikaciskiKod = table.Column<int>(type: "int", nullable: false),
+                    tip = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -193,8 +194,8 @@ namespace webAPI.Migrations
                     opis = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     adresa = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     status = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    datum_kreiranja = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    deadline = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    datum_kreiranja = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    deadline = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Cijena = table.Column<int>(type: "int", nullable: false),
                     brojAplikanata = table.Column<int>(type: "int", nullable: false),
                     opstina_id = table.Column<int>(type: "int", nullable: false),
@@ -339,7 +340,7 @@ namespace webAPI.Migrations
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     status = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    datum_apliciranja = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    datum_apliciranja = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     aplikant_id = table.Column<int>(type: "int", nullable: false),
                     posao_id = table.Column<int>(type: "int", nullable: false)
                 },
@@ -472,7 +473,7 @@ namespace webAPI.Migrations
                     ocjenjenid = table.Column<int>(type: "int", nullable: true),
                     ocjenjuje_id = table.Column<int>(type: "int", nullable: false),
                     apliciraniPosao_id = table.Column<int>(type: "int", nullable: false),
-                    datum_kreiranja = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    datum_kreiranja = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

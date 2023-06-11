@@ -35,7 +35,8 @@ namespace webAPI.Controllers
                 return BadRequest("Aplicirali ste već na ovaj oglas");
             var apliciraniPosao=new ApliciraniPosao() 
             { 
-                status=x.status, datum_apliciranja=DateTime.Now,
+                status=x.status==""?"Aktivan":x.status,
+                datum_apliciranja=DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss"),
                 posao_id=x.posao_id,aplikant_id=x.aplikant_id
             };
 

@@ -18,19 +18,13 @@ namespace WebAPI.Core.Repositories
         public   void AddPosao(PosaoAddVM posao)
         {
             var poslodavac = _db.Poslodavac.FirstOrDefault(p => p.korisnickoIme == posao.poslodavacUserName);
-            if (posao.posaoTip_id == -1)
-            {
-                _db.PosaoTip.Add(new PosaoTip() { naziv = posao.posaoTip });
-                _db.SaveChanges();
-                posao.posaoTip_id = _db.PosaoTip.FirstOrDefault(p => p.naziv == posao.posaoTip).id;
-            }
             _db.Posao.Add(new Posao { 
             naziv=posao.naziv,
             adresa=posao.adresa,
             opis=posao.opis,
             opstina_id=posao.opstina_id,
-            datum_kreiranja=DateTime.Now,
-            deadline=DateTime.Now.AddDays(posao.deadline),
+            datum_kreiranja=DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss"),
+            deadline=DateTime.Now.AddDays(posao.deadline).ToString("dd.MM.yyyy. HH:mm:ss"),
             Cijena=posao.cijena,
             brojAplikanata=posao.brojAplikanata,
             posaoTip_id=posao.posaoTip_id,

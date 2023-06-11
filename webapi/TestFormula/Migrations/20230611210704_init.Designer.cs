@@ -12,8 +12,8 @@ using WebAPI.Data;
 namespace webAPI.Migrations
 {
     [DbContext(typeof(APIDbContext))]
-    [Migration("20230607193223_tip")]
-    partial class tip
+    [Migration("20230611210704_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,8 +36,8 @@ namespace webAPI.Migrations
                     b.Property<int>("aplikant_id")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("datum_apliciranja")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("datum_apliciranja")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("posao_id")
                         .HasColumnType("int");
@@ -104,8 +104,8 @@ namespace webAPI.Migrations
                     b.Property<string>("brojTelefona")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("datumRegistracije")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("datumRegistracije")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("datumRodjenja")
                         .HasColumnType("nvarchar(max)");
@@ -161,8 +161,8 @@ namespace webAPI.Migrations
                     b.Property<int>("apliciraniPosao_id")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("datum_kreiranja")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("datum_kreiranja")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("komentar")
                         .HasColumnType("nvarchar(max)");
@@ -341,11 +341,11 @@ namespace webAPI.Migrations
                     b.Property<int>("brojAplikanata")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("datum_kreiranja")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("datum_kreiranja")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("deadline")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("deadline")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("naziv")
                         .HasColumnType("nvarchar(max)");

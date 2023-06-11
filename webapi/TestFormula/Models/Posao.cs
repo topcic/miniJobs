@@ -13,8 +13,8 @@ namespace WebAPI.Models
         public string opis { get; set; }
         public string adresa { get; set; }
         public string status { get; set; }
-        public DateTime datum_kreiranja { get; set; }
-        public DateTime deadline { get; set; }
+        public string datum_kreiranja { get; set; }
+        public string deadline { get; set; }
         public int Cijena { get; set; }
         public int brojAplikanata { get; set; }
 

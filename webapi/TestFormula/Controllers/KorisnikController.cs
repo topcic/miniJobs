@@ -187,7 +187,7 @@ namespace webAPI.Controllers
             {
                 komentar = o.komentar,
                 username=o.ocjenjuje.korisnickoIme,
-                datumKreiranja = o.datum_kreiranja.ToString("dd.MM.yyyy"),
+                datumKreiranja = o.datum_kreiranja,
                 slikaCopy =o.ocjenjuje.slika
 
             }).ToList();
@@ -206,7 +206,14 @@ namespace webAPI.Controllers
             //  string json = JsonConvert.SerializeObject(korisnik);
             return Ok(dojmovi);
         }
-
+        [HttpGet]
+        public ActionResult GetById(int id)
+        {
+            var korisnik = _db.KorisnickiNalog.Find(id);
+            if (korisnik == null)
+                return BadRequest();
+            return Ok(korisnik);
+        }
         [HttpPost]
         public ActionResult ObrisiKorisnickiNalog([FromBody] string userName)
         {

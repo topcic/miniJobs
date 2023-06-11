@@ -101,64 +101,64 @@ export class PoslodavacPosloviComponent {
     this.filtiraneLokacije = [];
   }
 
-ngOnInit(){
+  ngOnInit(){
     this.odabraniPosao=null;
-   this.ucitajPoslove();
-  this.forma=this.fb.group({
-    naziv:['',Validators.required],
-    lokacija:['',Validators.required],
-    adresa:[''],
-    vrijeme:[0],
-    posaoTip:['',Validators.required],
-    raspored:['',Validators.required],
-    brojLjudi:['',Validators.required],
-    opis:['',Validators.required],
-    nacinPlacanja:['',],
-    cijena:[0,Validators.required]
-  });
-  this.ocjenaKomentar=this.fb.group({
-    ocjena:['',Validators.required],
-    komentar:['',Validators.required],
-    ocjenjujeUsername:[''],
-    ocjenjeniUsername:[''],
-    posao_id:[''],
+    this.ucitajPoslove();
+    this.forma=this.fb.group({
+      naziv:['',Validators.required],
+      lokacija:['',Validators.required],
+      adresa:[''],
+      vrijeme:[0],
+      posaoTip:['',Validators.required],
+      raspored:['',Validators.required],
+      brojLjudi:['',Validators.required],
+      opis:['',Validators.required],
+      nacinPlacanja:['',],
+      cijena:[0,Validators.required]
+    });
+    this.ocjenaKomentar=this.fb.group({
+      ocjena:['',Validators.required],
+      komentar:['',Validators.required],
+      ocjenjujeUsername:[''],
+      ocjenjeniUsername:[''],
+      posao_id:[''],
 
-  });
-  this.mojConfig.getOpcineByDrzava(1).subscribe((r:any)=>{
+    });
+    this.mojConfig.getOpcineByDrzava(1).subscribe((r:any)=>{
       this.lokacije=r
     })
-  this.mojConfig.getPosaoTipAll().subscribe((r:any)=>{
-    this.posaoTipovi=r
-  })
-  this.mojConfig.getPitanjePonuđeniOdgovori(1).subscribe((r:any)=>{
+    this.mojConfig.getPosaoTipAll().subscribe((r:any)=>{
+      this.posaoTipovi=r
+    })
+    this.mojConfig.getPitanjePonuđeniOdgovori(1).subscribe((r:any)=>{
       this.rasporedi=r
 
 
 
     })
 
-  this.mojConfig.getPitanjePonuđeniOdgovori(2).subscribe((r:any)=>{
+    this.mojConfig.getPitanjePonuđeniOdgovori(2).subscribe((r:any)=>{
       this.nacinPlacanja=r
       this.pronađiBtnPoDogovoru();
       console.log('prvi')
       console.log(this.btnPoDogovoru_id);
     })
-  this.mojConfig.getPitanjePonuđeniOdgovori(3).subscribe((r:any)=>{
+    this.mojConfig.getPitanjePonuđeniOdgovori(3).subscribe((r:any)=>{
       this.dodatnoPlacanje=r
     })
 
 
-}
-pronađiBtnPoDogovoru(){
-  this.btnPoDogovoru_id=Number( this.nacinPlacanja.find(obj => obj.opis === 'po dogovoru')?.id);
-}
+  }
+  pronađiBtnPoDogovoru(){
+    this.btnPoDogovoru_id=Number( this.nacinPlacanja.find(obj => obj.opis === 'po dogovoru')?.id);
+  }
 
-ucitajPoslove(){
+  ucitajPoslove(){
     let username=this.auth.getUserNameFromToken();
-  this.mojConfig.getPosloveByUsername(username).subscribe((r:any)=>{
-    this.poslovi=r
-  })
-}
+    this.mojConfig.getPosloveByUsername(username).subscribe((r:any)=>{
+      this.poslovi=r
+    })
+  }
   getAplikanteByPosaoId(posaoId:number,brojAplikanata:number,opcija:string){
 //GetOcjenjeneAplikanteByPosaoId
     //ocjenjivanje
@@ -206,7 +206,7 @@ ucitajPoslove(){
       });
     })
   }
-initFormu(){
+  initFormu(){
     this.forma.get('naziv')?.setValue(this.odabraniPosao.naziv);
     this.forma.get('lokacija')?.setValue(this.odabraniPosao.opstina);
     this.forma.get('adresa')?.setValue(this.odabraniPosao.adresa);
@@ -220,7 +220,7 @@ initFormu(){
     this.selectedBtnNacinPlacanja=this.odabraniPosao.nacinPlacanja;
 
 
-}
+  }
   initDojamUserSlika(slika:any){
     this.userSlika= slika!==''?'data:image/jpeg;base64,'+slika:this.slikaPutanja
   }
@@ -228,11 +228,11 @@ initFormu(){
     this.router.navigate(['profil'],{ queryParams: { username: username } })
   }
   formatirajDatum(datum: Date):any{
- return  this.datePipe.transform(datum, 'dd.MM.yyyy');
-}
+    return  this.datePipe.transform(datum, 'dd.MM.yyyy');
+  }
   onInputChange(kontrola:string):void {
     if(kontrola==='opstine')
-    this.filtiraneLokacije= this.lokacije.filter(l => l.opis.toLowerCase().startsWith(this.forma.get('lokacija')!.value.toLowerCase()));
+      this.filtiraneLokacije= this.lokacije.filter(l => l.opis.toLowerCase().startsWith(this.forma.get('lokacija')!.value.toLowerCase()));
     else
       this.filteredJobTitles= this.posaoTipovi.filter(
         pt => pt.naziv.toLowerCase().startsWith(this.forma.get('posaoTip')?.value.toLowerCase())
@@ -275,14 +275,14 @@ initFormu(){
         this.selectedButtonDodatno.splice(index, 1);
         this.odabranoDodatno.splice(index, 1);
         this.odabranoDodatnoPreview.splice(index, 1);
-              }
+      }
       else {
         this.selectedButtonDodatno.push(r.id);
         this.odabranoDodatno.push(r.id);
         this.odabranoDodatnoPreview.push(r.opis);
-             }
-        }
+      }
     }
+  }
 
 
 
@@ -316,25 +316,25 @@ initFormu(){
       this.poDogovoru_id=placanje.id;
     }
   }
- initPosaoService(){
-   this.posaoService.naziv=this.forma.get('naziv')?.value;
-   this.posaoService.adresa=this.forma.get('adresa')?.value;
-   this.posaoService.opstina_id=this.opstina_id===-2?this.odabraniPosao.opstina_id:this.opstina_id;
-   this.posaoService.posaoTip_id=this.posaoTip_id===-2?-1:this.posaoTip_id;
-   if(this.posaoService.posaoTip_id===-1)
-     this.posaoService.posaoTip=this.forma.get('posaoTip')?.value;
-   this.posaoService.brojAplikanata=this.forma.get('brojLjudi')?.value;
-   this.posaoService.opis=this.forma.get('opis')?.value;
-   this.posaoService.cijena=this.forma.get('cijena')?.value;
-   this.posaoService.radnoVrijeme=this.selectedButtonRasporedPoslova;
-   this.posaoService.dodatnoPlacanje=this.selectedButtonDodatno;
-   this.posaoService.vrstaPlacanja=this.selectedBtnNacinPlacanja;
-   this.posaoService.deadline=this.forma.get('vrijeme')?.value;
-   this.userStore.getUserName().subscribe(r=>{
-     let rola=this.auth.getUserNameFromToken();
-     this.posaoService.poslodavacUserName=r||rola;
-   });
- }
+  initPosaoService(){
+    this.posaoService.naziv=this.forma.get('naziv')?.value;
+    this.posaoService.adresa=this.forma.get('adresa')?.value;
+    this.posaoService.opstina_id=this.opstina_id===-2?this.odabraniPosao.opstina_id:this.opstina_id;
+    this.posaoService.posaoTip_id=this.posaoTip_id===-2?-1:this.posaoTip_id;
+    if(this.posaoService.posaoTip_id===-1)
+      this.posaoService.posaoTip=this.forma.get('posaoTip')?.value;
+    this.posaoService.brojAplikanata=this.forma.get('brojLjudi')?.value;
+    this.posaoService.opis=this.forma.get('opis')?.value;
+    this.posaoService.cijena=this.forma.get('cijena')?.value;
+    this.posaoService.radnoVrijeme=this.selectedButtonRasporedPoslova;
+    this.posaoService.dodatnoPlacanje=this.selectedButtonDodatno;
+    this.posaoService.vrstaPlacanja=this.selectedBtnNacinPlacanja;
+    this.posaoService.deadline=this.forma.get('vrijeme')?.value;
+    this.userStore.getUserName().subscribe(r=>{
+      let rola=this.auth.getUserNameFromToken();
+      this.posaoService.poslodavacUserName=r||rola;
+    });
+  }
   checkField(fieldName: string,forma:FormGroup): boolean {
     return forma.controls[fieldName].dirty && forma.hasError('required', fieldName)
   }

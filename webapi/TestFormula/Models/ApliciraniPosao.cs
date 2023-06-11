@@ -8,7 +8,7 @@ namespace WebAPI.Models
         [Key]
         public int id { get; set; }
         public string status { get; set; }
-        public DateTime datum_apliciranja { get; set; }
+        public string datum_apliciranja { get; set; }
         
       //     [ForeignKey(nameof(aplikant))]
         public int aplikant_id { get; set; }

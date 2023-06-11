@@ -68,7 +68,8 @@ namespace WebAPI.Modul_TestniPodaci.Controllers
                 "Konobar",
                 "Utovar/istovar",
                 "Pomoćni radnik",
-                "Kućna njega"
+                "Kućna njega",
+                "Radnik"
             };
             foreach (var r in rasporedi)
             {
@@ -135,12 +136,12 @@ namespace WebAPI.Modul_TestniPodaci.Controllers
                 poslodavac_id = 5,
                 naziv = "Utovar/istovar",
                 opis = "Potrebno je istovariti tri kamiona robe.",
-                datum_kreiranja = DateTime.Now,
+                datum_kreiranja = DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss"),
                 brojAplikanata = 6,
                 status = "Aktivan",
                 Cijena = 8,
                 opstina_id = 10,
-                deadline = DateTime.Now,
+                deadline = DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss"),
                 posaoTip_id = 3
             });
             poslovi.Add(new Posao
@@ -148,11 +149,11 @@ namespace WebAPI.Modul_TestniPodaci.Controllers
                 poslodavac_id = 3,
                 naziv = "Konobar",
                 opis = "Potrebno konobar u kaficu X.",
-                datum_kreiranja = DateTime.Now,
+                datum_kreiranja = DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss"),
                 brojAplikanata = 2,
                 Cijena = 5,
                 opstina_id = 10,
-                deadline = DateTime.Now,
+                deadline = DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss"),
                 status = "Aktivan",
                 posaoTip_id = 1
             });
@@ -161,11 +162,11 @@ namespace WebAPI.Modul_TestniPodaci.Controllers
                 poslodavac_id = 1,
                 naziv = "Električar",
                 opis = "Potrebno električar da razvede struju u kući.",
-                datum_kreiranja = DateTime.Now,
+                datum_kreiranja = DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss"),
                 brojAplikanata = 1,
                 Cijena = 10,
                 opstina_id = 10,
-                deadline = DateTime.Now,
+                deadline = DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss"),
                 status = "Aktivan",
                 posaoTip_id = 2
             });
@@ -174,11 +175,11 @@ namespace WebAPI.Modul_TestniPodaci.Controllers
                 poslodavac_id = 1,
                 naziv = "Pomoćni radnik",
                 opis = "Potreban pomoćni radnik u pekari. Zadaci: prodaja, komunikacija sa mušterijama, pomoć glavnom pekaru",
-                datum_kreiranja = DateTime.Now,
+                datum_kreiranja = DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss"),
                 brojAplikanata = 2,
                 Cijena = 6,
                 opstina_id = 10,
-                deadline = DateTime.Now,
+                deadline = DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss"),
                 posaoTip_id = 4,
                 status = "Aktivan"
             });
@@ -187,45 +188,45 @@ namespace WebAPI.Modul_TestniPodaci.Controllers
                 poslodavac_id = 2,
                 naziv = "Kućna njega",
                 opis = "Potrebna osoba za kućnu njegu oko starije osobe (80 godina). Starija osoba može da hoda ali je potrebna samo mala pomoć pri obavljanju svakodnevnih poslova",
-                datum_kreiranja = DateTime.Now,
+                datum_kreiranja = DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss"),
                 brojAplikanata = 1,
                 Cijena = 9,
                 opstina_id = 10,
-                deadline = DateTime.Now,
+                deadline = DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss"),
                 posaoTip_id = 5,
                 status = "Aktivan"
             });
             apliciraniPoslovi.Add(new ApliciraniPosao { 
             posao_id= 1,
-            datum_apliciranja= DateTime.Now,
+            datum_apliciranja= DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss"),
             status="Aktivan",
             aplikant_id=6
             });
             apliciraniPoslovi.Add(new ApliciraniPosao
             {
                 posao_id = 2,
-                datum_apliciranja = DateTime.Now,
+                datum_apliciranja = DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss"),
                 status = "Aktivan",
                 aplikant_id = 7
             });
             apliciraniPoslovi.Add(new ApliciraniPosao
             {
                 posao_id = 2,
-                datum_apliciranja = DateTime.Now,
+                datum_apliciranja = DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss"),
                 status = "Aktivan",
                 aplikant_id = 8
             });
             apliciraniPoslovi.Add(new ApliciraniPosao
             {
                 posao_id = 2,
-                datum_apliciranja = DateTime.Now,
+                datum_apliciranja = DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss"),
                 status = "Aktivan",
                 aplikant_id = 9
             });
             apliciraniPoslovi.Add(new ApliciraniPosao
             {
                 posao_id = 2,
-                datum_apliciranja = DateTime.Now,
+                datum_apliciranja = DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss"),
                 status = "Aktivan",
                 aplikant_id = 10
             });
@@ -239,7 +240,7 @@ namespace WebAPI.Modul_TestniPodaci.Controllers
 
             aplikanti.Add(new Aplikant
             {
-                datumRegistracije = DateTime.Now,
+                datumRegistracije = DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss"),
                 ime = "Adil",
                 prezime = "Kurić",
                 korisnickoIme = "adilkuric",
@@ -249,7 +250,7 @@ namespace WebAPI.Modul_TestniPodaci.Controllers
             });
             aplikanti.Add(new Aplikant
             {
-                datumRegistracije = DateTime.Now,
+                datumRegistracije = DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss"),
                 ime = "Almina",
                 prezime = "Topić",
                 korisnickoIme = "alminatopic",
@@ -259,7 +260,7 @@ namespace WebAPI.Modul_TestniPodaci.Controllers
             });
             aplikanti.Add(new Aplikant
             {
-                datumRegistracije = DateTime.Now,
+                datumRegistracije = DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss"),
                 ime = "Adel",
                 prezime = "Kadić",
                 korisnickoIme = "adel1999",
@@ -270,7 +271,7 @@ namespace WebAPI.Modul_TestniPodaci.Controllers
 
             aplikanti.Add(new Aplikant
             {
-                datumRegistracije = DateTime.Now,
+                datumRegistracije = DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss"),
                 ime = "Amar",
                 prezime = "Dizdar",
                 korisnickoIme = "dizdar001",
@@ -280,7 +281,7 @@ namespace WebAPI.Modul_TestniPodaci.Controllers
             });
             aplikanti.Add(new Aplikant
             {
-                datumRegistracije = DateTime.Now,
+                datumRegistracije = DateTime.Now.ToString("dd.MM.yyyy. HH:mm:ss"),
                 ime = "Emir",
                 prezime = "Smajić",
                 korisnickoIme = "smajke20",

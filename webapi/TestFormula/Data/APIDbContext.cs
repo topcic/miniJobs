@@ -53,7 +53,7 @@ namespace WebAPI.Data
                 .HasForeignKey(pi => pi.pitanjeThread_id).
                 OnDelete(DeleteBehavior.ClientSetNull);
 
-            // sprjecavanje cascade delete za Ocjena
+            //sprecavanje cascade delete za Ocjene
             modelBuilder.Entity<Ocjena>()
                    .HasOne(a => a.ocjenjuje)
                    .WithMany(sp => sp.ocjene)
@@ -64,6 +64,7 @@ namespace WebAPI.Data
                 .WithMany(pp => pp.ocjene)
                 .HasForeignKey(pi => pi.apliciraniPosao_id).
                 OnDelete(DeleteBehavior.ClientSetNull);
+
             // sprjecavanje cascade delete za Posao
             modelBuilder.Entity<Posao>()
            .HasOne(p => p.poslodavac)

@@ -95,7 +95,7 @@ namespace webAPI.Modul_Autentifikacija
 
             reg.lozinka = LozinkaHasher.HashPassword(reg.lozinka);
            
-                //      var kod = GenerisiRandomBroj();
+                //     var kod = GenerisiRandomBroj();
                 //   SendVerificationEmail("27topcic.mahir@gmail.com", "topcic27", kod);
                 var aplikant = new Aplikant
                 {
@@ -108,7 +108,7 @@ namespace webAPI.Modul_Autentifikacija
                 await _db.Aplikant.AddAsync(aplikant);
 
                 var kod = GenerisiRandomBroj();
-                var result = SendVerificationEmail("27topcic.mahir@gmail.com", "topcic27", kod,"registracija");
+                var result = SendVerificationEmail(reg.email, reg.korisnickoIme, kod,"registracija");
                 if (result)
                 {
 
@@ -169,7 +169,7 @@ namespace webAPI.Modul_Autentifikacija
                 await _db.Poslodavac.AddAsync(poslodavac);
 
                 var kod = GenerisiRandomBroj();
-                var result = SendVerificationEmail("27topcic.mahir@gmail.com", "topcic27", kod, "registracija");
+                var result = SendVerificationEmail(reg.email, reg.korisnickoIme, kod, "registracija");
                 if (result)
             {
                 var verifikacijaEmailObj = _db.verifikacijaEmail.Include(ve => ve.korisnik).
@@ -298,7 +298,7 @@ namespace webAPI.Modul_Autentifikacija
                 });
 
             }
-            return BadRequest(new
+            return Ok(new
             {
                 Message = "Molimo Vas pokušajte ponovo"
             });

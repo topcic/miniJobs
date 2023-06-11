@@ -10,7 +10,7 @@
         <button  *ngIf="posao.status !== 'Završen' && this.tipKorisnika==='Aplikant'"  style="font-size:200%;background-color: transparent; border: none;margin-left: 25%" (click)="spremiPosao()"><i
           class="fa fa-bookmark-o"></i></button>
         <button type="button" class="btn-close" (click)="closeModal()" data-bs-dismiss="modal" aria-label="Close"
-         [style.margin-left.%]="(posao.status !== 'Završen' && this.tipKorisnika==='Aplikant')?15:65"    style=" display: inline; font-size: 150%;"></button>
+                [style.margin-left.%]="(posao.status !== 'Završen' && this.tipKorisnika==='Aplikant')?15:65"    style=" display: inline; font-size: 150%;"></button>
         <p class="uredi">Oglas za posao</p>
       </div>
       <div class="modal-body">

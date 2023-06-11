@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebAPI.Models
 {
@@ -12,14 +13,13 @@ namespace WebAPI.Models
         public int ocjenjen_id { get; set; }
         public KorisnickiNalog ocjenjen { get; set; }
 
-        //  [ForeignKey(nameof(primalac))]
         public int ocjenjuje_id { get; set; }
         public KorisnickiNalog ocjenjuje { get; set; }
 
         public int apliciraniPosao_id { get; set; }
         public ApliciraniPosao apliciraniPosao { get; set; }
 
-        public DateTime datum_kreiranja { get; set; }
+        public string datum_kreiranja { get; set; }
 
     }
 }

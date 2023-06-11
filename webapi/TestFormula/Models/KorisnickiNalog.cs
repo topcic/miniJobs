@@ -11,7 +11,7 @@ namespace WebAPI.Models
         public int id { get; set; }
         public string korisnickoIme { get; set; }
        
-        public DateTime? datumRegistracije { get; set; }
+        public string? datumRegistracije { get; set; }
         public string? brojTelefona { get; set; }
         public int? status { get; set; }
         public string? spol { get; set; }

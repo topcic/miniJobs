@@ -70,7 +70,7 @@ export class ContentComponent {
   uredivanjeDatuma() {
     if (this.odabraniPosao != null) {
       this.tempString = this.odabraniPosao.deadline;
-      this.datumUredi = this.tempString.slice(0, 10);
+      this.datumUredi = this.tempString.slice(0, 11);
     }
 
   }
@@ -87,7 +87,7 @@ export class ContentComponent {
 
   }
   filtrirajAplikante(): void {
-    console.log(this.gradSearch)
+
     this.filtriraniAplikanti = this.aplikanti.filter((x: any) =>
     ((x.tipPosla && x.tipPosla.toLowerCase().startsWith(this.nazivSearch.toLowerCase()) || x.tipPosla == null) &&
       (x.opstina && x.opstina.toLowerCase().startsWith(this.gradSearch.toLowerCase()) || x.opstina == null)));

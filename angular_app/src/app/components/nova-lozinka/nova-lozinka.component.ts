@@ -131,7 +131,7 @@ export class NovaLozinkaComponent {
 
 
             this.router.navigate(["login"]);
-            porukaSuccess("Uspješno ste zamijenili lozinku.")
+            porukaSuccess("Uspješno ste zamjenili lozinku.")
 
 
           },
