@@ -2,17 +2,23 @@
   margin:0;
   padding:0;
 }
-.outer{
+.outer {
   height: 90vh;
-  background:#f7f7f7;
+  background: #f7f7f7;
   position: relative;
   z-index: 1;
   overflow: hidden;
-
-
+  display: block;
 }
 
 .content {
+  /* Position relative to .outer */
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the element */
+
+  /* Other styles for .content */
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -21,6 +27,7 @@
   border: none;
   align-items: center;
 }
+
 
 .footer {
   margin-top: auto;
@@ -184,15 +191,20 @@ input.error{
 
 
 .step-navigation {
-  margin-left: 29%;
+  /* Position relative to .outer */
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the element */
+
+  /* Other styles for .step-navigation */
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 860px;
   margin-top: 1%;
-
-
 }
+
 
 .step-circle {
   position: relative;

@@ -48,3 +48,19 @@ svg{
   background-color: rgb(174, 1, 160);
   color:white;
 }
+.user-menu-wrapper {
+  position: relative;
+  left:50%;
+  display: inline-block;
+  z-index: 2;
+}
+
+/* CSS for the User Menu Component (Adjust as needed) */
+app-usermenu {
+  position: absolute;
+  top: 102%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: #ffffff;
+  /* Add any other styles for the user menu component */
+}

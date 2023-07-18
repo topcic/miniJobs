@@ -323,7 +323,7 @@ button {
 
 }
 
-.lokacija {
+.lokacija,.posaoTipIconDiv {
   display: flex;
   flex-direction: row;
   margin-top: -2%;
@@ -340,8 +340,15 @@ button {
   margin-top: 1%;
   color: white;
 }
+#iconTipPosla{
 
-#lokacija {
+  font-size: 20px;
+  margin-right: 5%;
+  margin-left: 1%;
+  margin-top: -1%;
+  color: white;
+}
+#lokacija,.posaoTip {
   font-size: 18px;
   font-weight: 400;
   color: white;
@@ -368,3 +375,7 @@ button {
   object-fit: cover;
   cursor: pointer;
 }
+
+
+
+

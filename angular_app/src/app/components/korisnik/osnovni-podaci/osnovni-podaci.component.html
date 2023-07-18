@@ -1,6 +1,6 @@
 <app-navbar [tipKorisnika]="tipKorisnika"></app-navbar>
 
-<div class="outer">
+<div class="outer"  [style]="tipKorisnika === 'Poslodavac' ? { 'height': '166vh' } : { 'height': '100vh' }" >
   <div class="container">
     <div class="navbar">
       <div class="navbar-child">
@@ -286,5 +286,9 @@
     </div>
   </div>
 </div>
-<app-footer [top]="170"  ></app-footer>
+
+  <!-- Other content -->
+<app-footer  [top]="170" ></app-footer>
+
+
 

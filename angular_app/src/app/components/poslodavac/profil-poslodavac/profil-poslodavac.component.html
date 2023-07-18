@@ -11,7 +11,7 @@
         <div class="slika-podaci">
           <div class="slikaDiv">
             <label class="profile-img">
-              <input  type="file" style="display: none;">
+
               <img [src]="userImage" >
             </label>
           </div>
@@ -139,7 +139,7 @@
             </div>
             <div class="profile-section" *ngIf="user.prijedlogSatince  !=null && user.prijedlogSatince  !='' ">
               <h3>Satnica</h3>
-              <p>{{user.prijedlogSatince }} KMr</p>
+              <p>{{user.prijedlogSatince }} KM</p>
             </div>
           </div>
         </div>

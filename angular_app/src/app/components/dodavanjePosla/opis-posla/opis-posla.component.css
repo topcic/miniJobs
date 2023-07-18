@@ -4,7 +4,7 @@
   padding:0;
 }
 .outer{
-  height: 130vh;
+  height: 135vh;
   background:#f7f7f7;
   position: relative;
   z-index: 1;
@@ -13,6 +13,10 @@
 
 }
 .content{
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
 
@@ -198,7 +202,11 @@ input.error{
 }
 
 .step-navigation {
-  margin-left: 29%;
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   display: flex;
   align-items: center;
   justify-content: space-between;

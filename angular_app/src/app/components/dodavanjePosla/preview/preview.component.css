@@ -3,7 +3,7 @@
   padding:0;
 }
 .outer{
-  height: auto; /* Change from 110vh to auto */
+  height: 115vh; /* Change from 110vh to auto */
   background: #f7f7f7;
   position: relative;
   z-index: 1;
@@ -18,7 +18,7 @@
 
   width: 100%;
   height: 100%;
-  margin: 0;
+  margin-top: 5%;
   border: none;
   align-items: center;
 
@@ -218,7 +218,10 @@ button:hover{
 
 
 .step-navigation {
-  margin-left: 29%;
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: space-between;
