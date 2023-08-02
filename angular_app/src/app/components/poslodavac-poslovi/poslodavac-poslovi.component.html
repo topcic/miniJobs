@@ -42,8 +42,13 @@
         <!--*ngIf="opcija==='ocjenjivanje'" -->
         <p class="uredi" [style]="opcija==='ocjenjivanje'?{'margin-left':'-28%'}:''">{{aplikantiNaslov}}</p>
       </div>
-      <p>Da biste završili posao potrebno je da ocijenite i dodate komentar za aplikanata/e koji su Vam odradili posao.</p>
-      <div class="modal-body">
+      <p *ngIf="opcija==='ocjenjivanje'">Da biste završili posao potrebno je da ocijenite i dodate komentar za aplikanata/e koji su Vam odradili posao.</p>
+      <div class="p-aplikanti">
+        <p   *ngIf="opcija!=='ocjenjivanje'">Upoznajte naše aplikante i odaberite idealnog kandidata za vas!</p>
+        <p  *ngIf="opcija!=='ocjenjivanje'">Klikom na bilo kojeg od njih možete otvoriti njihov profil i saznati više o njihovim vještinama, iskustvu i preporukama. Odaberite najboljeg kandidata za vaše potrebe i upustite se u uspješnu suradnju.</p>
+       
+      </div>
+    <div class="modal-body">
 
 
         <div class="outer">
@@ -65,7 +70,7 @@
                         <p id="brZPoslova">{{aplikant.brojZavrsenihPoslova}}</p>
                       </div>
                     </div>
-                    <div class="lokacijaDiv">
+                    <div class="lokacijaDiv" *ngIf="aplikant.opstina">
                       <div class="lokacija">
                         <p class="fa fa-map-marker"></p>
                         <p id="lokacija"> {{aplikant.opstina}}</p>

@@ -154,7 +154,7 @@ namespace WebAPI.Controllers
                          join ap in _db.ApliciraniPosao on p.id equals ap.posao_id into joinResult
                          from ap in joinResult.DefaultIfEmpty()
                          join pp in _db.PosaoPitanje on p.id equals pp.posao_id
-                         where ap.aplikant_id == korisnik.id && p.status == "Zavrsen"
+                         where ap.aplikant_id == korisnik.id && p.status == "Završen"
                          group new { p, o.description, pt.naziv, k.korisnickoIme } by new
                          { id = p.id, p.naziv, p.deadline, p.opis, p.status, p.brojAplikanata, o.description, tipPosla = pt.naziv, k.korisnickoIme, p.adresa, p.Cijena, p.opstina_id, p.posaoTip_id } into g
                          select new PosaoGetByUsernameVM

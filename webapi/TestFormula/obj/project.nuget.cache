@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iT2XP5Xa3gbvK85sqyqzUjIOyxqJXNpUWqCuwjywlwMOkW5zxoj9t3qnrOiC6/NJW4UaJJZN+kDV0qp1QyFAMQ==",
+  "dgSpecHash": "suGquDfRN1MvwSVZ5QTDoMj9JqlszaDqafTUlVRrSp56FCqci/LYMW2NWKu2saPw9rgrlwQVdGL7Zm2uC7nbLQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mahir\\Desktop\\seminarski rs1\\miniJobs\\webapi\\TestFormula\\webAPI.csproj",
+  "projectFilePath": "C:\\Users\\Mahir\\OneDrive - Faculty of Information Technologies\\Desktop\\seminarski rs1\\miniJobs\\webapi\\TestFormula\\webAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mahir\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Mahir\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

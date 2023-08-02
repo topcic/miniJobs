@@ -64,7 +64,7 @@ namespace webAPI.Controllers
             }).ToList();
             foreach (var d in data)
             {
-                d.brojZavrsenihPoslova = _db.ApliciraniPosao.Include(p => p.posao).Where(ap => ap.aplikant_id == d.id && ap.posao.status == "Zavrsen").ToList().Count;
+                d.brojZavrsenihPoslova = _db.ApliciraniPosao.Include(p => p.posao).Where(ap => ap.aplikant_id == d.id && ap.posao.status == "Završen").ToList().Count;
                 var aplikantPosaoTip = _db.aplikantPosaoTip.Include(ap => ap.posaoTip).FirstOrDefault(ap => ap.aplikant_id == d.id);
                 if (aplikantPosaoTip != null)
                     d.posaoTip = aplikantPosaoTip.posaoTip.naziv;

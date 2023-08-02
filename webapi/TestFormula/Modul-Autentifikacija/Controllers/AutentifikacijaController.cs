@@ -297,7 +297,7 @@ namespace webAPI.Modul_Autentifikacija
                 });
 
             }
-            return Ok(new
+            return BadRequest(new
             {
                 Message = "Molimo Vas pokušajte ponovo"
             });
